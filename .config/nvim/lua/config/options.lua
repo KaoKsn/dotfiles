@@ -9,7 +9,7 @@ set.breakindent = true -- preserve indent while breaking
 
 set.mouse = "a"
 set.showmode = false
-set.clipboard = "unnamedplus"
+-- set.clipboard = "unnamedplus"
 set.undofile = true
 set.ignorecase = true
 set.smartcase = true
