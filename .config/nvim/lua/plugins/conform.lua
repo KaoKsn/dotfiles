@@ -22,6 +22,22 @@ return {
 				typescriptreact = { "prettier" },
 				yaml = { "prettier" },
 			},
+			formatters = {
+				clang_format = {
+					prepend_args = function(self, ctx)
+						local indent = vim.bo[ctx.buf].shiftwidth
+						-- Pass an inline style forcing the indent width to match Neovim
+						return { "--style={BasedOnStyle: llvm, IndentWidth: " .. indent .. "}" }
+					end,
+				},
+				stylua = {
+					prepend_args = function(self, ctx)
+						local indent = vim.bo[ctx.buf].shiftwidth
+						-- Pass an inline style forcing the indent width to match Neovim
+						return { "--indent-width", tostring(indent) }
+					end,
+				},
+			},
 			format_on_save = {
 				lsp_fallback = true,
 				async = false,
