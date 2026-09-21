@@ -17,6 +17,7 @@ return {
 					"pyright", -- Python
 					"jdtls", -- Java
 					"ts_ls", -- JavaScript / TypeScript
+					"rust_analyzer", -- Rust
 				},
 			})
 		end,
@@ -42,7 +43,7 @@ return {
 			})
 
 			-- 3. Enable all servers so they auto-start when opening matching filetypes
-			local servers = { "clangd", "bashls", "lua_ls", "pyright", "jdtls", "ts_ls" }
+			local servers = { "clangd", "bashls", "lua_ls", "pyright", "jdtls", "ts_ls", "rust-analyzer" }
 			for _, server in ipairs(servers) do
 				vim.lsp.enable(server)
 			end

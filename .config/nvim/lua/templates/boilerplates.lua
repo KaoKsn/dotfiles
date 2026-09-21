@@ -5,7 +5,7 @@ return {
 			"#include <bits/stdc++.h>",
 			"using namespace std;",
 			"",
-			"int main() {",
+			"int main(int argc, char **argv) {",
 			"    ios::sync_with_stdio(false);",
 			"    cin.tie(nullptr);",
 			"",
@@ -14,11 +14,12 @@ return {
 		},
 	},
 	c = {
-		cursor = { 4, 12 }, -- Inside printf("")
+		cursor = { 5, 12 }, -- Inside printf("")
 		code = {
 			"#include <stdio.h>",
+			"#include <stdlib.h>",
 			"",
-			"int main() {",
+			"int main(int argc, char **argv) {",
 			"    ",
 			"    return 0;",
 			"}",

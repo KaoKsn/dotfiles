@@ -46,6 +46,7 @@ end, { desc = "Lazy load a plugin" })
 -- File writes
 map("n", "<leader>wq", "<cmd>wq<CR>", { desc = "Save and quit" })
 map("n", "<leader>w", "<cmd>w<CR>", { desc = "Save" })
+map("n", "<leader>q", "<cmd>q<CR>", { desc = "Quit" })
 
 -- telescope
 map("n", "<leader>ff", "<cmd>Telescope find_files<CR>")
@@ -92,9 +93,16 @@ vim.keymap.set("n", "<leader>bp", function()
 		return
 	end
 
+	local cursor_info = vim.api.nvim_win_get_cursor(0)
+
+	local current_col_pos = cursor_info[1] -- row
+	if not current_col_pos then
+		current_col_pos = 0
+	end
 	-- (lines, type, after, follow)
 	vim.api.nvim_put(bp.code, "l", false, true) -- Start boilerplate from the current line
-	vim.api.nvim_win_set_cursor(0 --[[current window]], bp.cursor)
+	-- Handle relative boilerpasting.
+	vim.api.nvim_win_set_cursor(0 --[[current window]], { bp.cursor[1] + current_col_pos - 1, bp.cursor[2] })
 	print("")
 end, { desc = "Insert code boilerplate" })
 
