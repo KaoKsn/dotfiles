@@ -43,7 +43,7 @@ return {
 			})
 
 			-- 3. Enable all servers so they auto-start when opening matching filetypes
-			local servers = { "clangd", "bashls", "lua_ls", "pyright", "jdtls", "ts_ls", "rust-analyzer" }
+			local servers = { "clangd", "bashls", "lua_ls", "pyright", "jdtls", "ts_ls", "rust_analyzer" }
 			for _, server in ipairs(servers) do
 				vim.lsp.enable(server)
 			end
