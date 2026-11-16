@@ -41,12 +41,13 @@ return {
 		},
 	},
 	py = {
-		cursor = { 2, 4 }, -- Right after main
+		cursor = { 3, 4 }, -- Right after main
 		code = {
+			"import sys",
 			"def main():",
-			"    ",
+			"    pass",
 			"if __name__ == '__main__':",
-			"    main()",
+			"    sys.exit(main())",
 		},
 	},
 }
